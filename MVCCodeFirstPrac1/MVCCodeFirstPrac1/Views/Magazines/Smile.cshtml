@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "Smile";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Automatic Page</title>
+
+    <script type="text/javascript">
+
+function tony() {
+var fiat = {
+make: "Fiat",
+model: "500",
+year: 1957,
+color: "Medium Blue",
+passengers: 2,
+convertible: false,
+mileage: 88000,
+engine: false,
+started:false,
+fuel:0,
+/*if u don't have the this keyword in line 24
+then this will never work.either use this or
+fiat.start in line  or both!!!   */
+start: function(){
+  if (this.fuel == 0)
+  {alert("The car is on empty, fill up before starting!")}
+  else {
+    this.started == true;
+  }
+
+},
+stopped:function(){
+  started = false;
+},
+//drive function changed in this version
+
+//
+//   if(this.started){
+//
+//     { alert(this.make + "" + this.model + "moves with smooth motion");
+// this.fuel = this.fuel -1;}
+// else  {
+//   alert("U R out of fuel");
+//   this.stop();
+// }
+// // else {
+// //
+// // alert("U need to start the engine first!!");
+// // }
+// else if{
+//   alert("No Go");
+// }
+//
+// },
+
+
+drive: function() {
+    if (this.fuel > 0 && this.started == true )
+    {alert("we r moving now")
+this.fuel--;
+  }
+else if (this.fuel <=0 || this.started == false)
+{alert("we r not moving today")}
+  else {
+    alert("we don't understand your input");
+  }
+
+},
+
+addfuel: function(amount) {
+  this.fuel = this.fuel + amount;
+}
+
+
+//u must call both of these methods or nothing will happen!! or use fiat.start + the this keywork in line24
+
+}
+fiat.addfuel(5);
+fiat.start();
+
+
+fiat.drive();
+
+}
+
+    </script>
+
+</head>
+<body>
+    <input type="text" id="gas" placeholder="fuel amount">
+
+
+    <button type="button" name="button" onclick="fiat.addfuel()"> Fuel Button </button>
+    <p>
+        <button type="button" name="button" onclick="tony()"> Tony Button </button>
+    </p>
+</body>
+</html>
+
+
